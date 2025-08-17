@@ -458,11 +458,7 @@ class OF_Const {
                                 /*10*/ btnUnmapped, btnUnmapped, btnUnmapped, btnUnmapped, btnUnmapped,
                                 /*15*/ btnUnmapped, btnGunB,     solenoidPin, camSCL,      btnTrigger,
                                 /*20*/ camSDA,      btnGunUp,    btnGunLeft,  btnGunA,     btnUnmapped,
-                                /*25*/ btnUnmapped, btnUnmapped, btnUnmapped, btnUnmapped, btnUnmapped,
-                                /*30*/ btnUnmapped, btnUnmapped, btnUnmapped, btnUnmapped, btnUnmapped,
-                                /*35*/ btnUnmapped, btnUnmapped, btnUnmapped, btnUnmapped, btnUnmapped,
-                                /*40*/ btnUnmapped, btnUnmapped, btnUnmapped, btnUnmapped, btnUnmapped,
-                                /*45*/ btnUnmapped, btnUnmapped, btnUnmapped, btnUnmapped, btnUnmapped}},
+                                /*25*/ btnUnmapped, btnUnmapped, btnUnmapped, btnUnmapped, btnUnmapped}},
         //=====================================================================================================================
         /* more ESP boards should be added here */
     };
@@ -489,10 +485,10 @@ class OF_Const {
     /// @brief      Types of board architectures
     /// @details    Board archs are to be dictated by the application on a per-board basis,
     ///             to be used for defining which pins are capable of what.
-    const char* boardArchs[2] = {"rp2040_235X", "esp32-s3"};
+    const char* boardArchs[3] = {"rp2040_235X", "esp32-s3", "esp32-c6"};
 
     /// @brief      Indices for the boardArchs strings above
-    enum { boardRP, boardESP32_S3 } boardArchs_e;
+    enum { boardRP, boardESP32_S3, boardESP32_C6 } boardArchs_e;
 
     /// @brief      Indices to be used as a bitmap for defining pin capabilities
     /// @note       Default (0) assumes the pin is digital only with no I2C or SPI capability
@@ -641,6 +637,41 @@ class OF_Const {
           pinSystem,
           pinAnyI2C | pinAnySPI,
           pinAnyI2C | pinAnySPI}},
+        //====================================================
+    // Base Microcontroller: ESP32-C6
+    // GPIO: 30 (0-29) – XIAO ESP32-C6 exposes a subset; higher indexes removed for consistency
+    // Notes: Pins 0-6 ADC capable (ADC1). Pin 0 reserved (boot/strapping) so marked system.
+    {boardArchs[boardESP32_C6],
+     {/*00*/ pinSystem,
+      pinHasADC | pinAnyI2C | pinAnySPI,
+      pinHasADC | pinAnyI2C | pinAnySPI,
+      pinHasADC | pinAnyI2C | pinAnySPI,
+      pinHasADC | pinAnyI2C | pinAnySPI,
+      /*05*/ pinHasADC | pinAnyI2C | pinAnySPI,
+      pinHasADC | pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      /*10*/ pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      /*15*/ pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      /*20*/ pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      /*25*/ pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI,
+      pinAnyI2C | pinAnySPI}},
         //====================================================
         // Board Overrides: Raspberry Pi Pico (Non-/W, 1&2)
         // Some pins that should have I2C or SPI functions apparently aren't allowed on rpipico[2](w)?
@@ -900,6 +931,16 @@ class OF_Const {
           /*35*/ 14 | posLeft,  15 | posLeft,  16 | posLeft,  17 | posLeft, 19 | posLeft,
           /*40*/ 20 | posLeft,  19 | posRight, 20 | posRight, posNothing,   posNothing,
           /*45*/ posNothing,    posNothing,    posNothing,    posNothing}},
+        //=====================================================================================================================
+        // SeeedStudio XIAO ESP32-C6
+        // Board Type: ESP32-C6  
+    {"seeed-xiao-esp32c6",
+     {/*00*/ 1 | posLeft,   2 | posLeft,   3 | posLeft,   posNothing,   4 | posLeft,
+      /*05*/ 5 | posLeft,   6 | posLeft,   7 | posLeft,   posNothing,   posNothing,
+      /*10*/ posNothing,    posNothing,    posNothing,    posNothing,   posNothing,
+      /*15*/ posNothing,    10 | posRight, 9 | posRight,  8 | posRight, 7 | posRight,
+      /*20*/ 6 | posRight,  5 | posRight,  4 | posRight,  3 | posRight, posNothing,
+      /*25*/ posNothing,    posNothing,    posNothing,    posNothing,   posNothing}}, // trimmed to 30 GPIO (0-29)
         //=====================================================================================================================
         // Insert new ESP layouts below this one!
         // Feel free to use any of the above as a template.
