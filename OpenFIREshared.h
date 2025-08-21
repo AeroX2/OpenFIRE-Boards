@@ -638,40 +638,40 @@ class OF_Const {
           pinAnyI2C | pinAnySPI,
           pinAnyI2C | pinAnySPI}},
         //====================================================
-    // Base Microcontroller: ESP32-C6
-    // GPIO: 30 (0-29) – XIAO ESP32-C6 exposes a subset; higher indexes removed for consistency
-    // Notes: Pins 0-6 ADC capable (ADC1). Pin 0 reserved (boot/strapping) so marked system.
-    {boardArchs[boardESP32_C6],
-     {/*00*/ pinSystem,
-      pinHasADC | pinAnyI2C | pinAnySPI,
-      pinHasADC | pinAnyI2C | pinAnySPI,
-      pinHasADC | pinAnyI2C | pinAnySPI,
-      pinHasADC | pinAnyI2C | pinAnySPI,
-      /*05*/ pinHasADC | pinAnyI2C | pinAnySPI,
-      pinHasADC | pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      /*10*/ pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      /*15*/ pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      /*20*/ pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      /*25*/ pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI,
-      pinAnyI2C | pinAnySPI}},
+        // Base Microcontroller: ESP32-C6
+        // GPIO: 30 (0-29) – XIAO ESP32-C6 exposes a subset; higher indexes removed for consistency
+        // Notes: Pins 0-6 ADC capable (ADC1). Pin 0 reserved (boot/strapping) so marked system.
+        {boardArchs[boardESP32_C6],
+         {/*00*/ pinSystem,
+          pinHasADC | pinAnyI2C | pinAnySPI,
+          pinHasADC | pinAnyI2C | pinAnySPI,
+          pinHasADC | pinAnyI2C | pinAnySPI,
+          pinHasADC | pinAnyI2C | pinAnySPI,
+          /*05*/ pinHasADC | pinAnyI2C | pinAnySPI,
+          pinHasADC | pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          /*10*/ pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          /*15*/ pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          /*20*/ pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          /*25*/ pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI,
+          pinAnyI2C | pinAnySPI}},
         //====================================================
         // Board Overrides: Raspberry Pi Pico (Non-/W, 1&2)
         // Some pins that should have I2C or SPI functions apparently aren't allowed on rpipico[2](w)?
@@ -933,14 +933,19 @@ class OF_Const {
           /*45*/ posNothing,    posNothing,    posNothing,    posNothing}},
         //=====================================================================================================================
         // SeeedStudio XIAO ESP32-C6
-        // Board Type: ESP32-C6  
-    {"seeed-xiao-esp32c6",
-     {/*00*/ 1 | posLeft,   2 | posLeft,   3 | posLeft,   posNothing,   4 | posLeft,
-      /*05*/ 5 | posLeft,   6 | posLeft,   7 | posLeft,   posNothing,   posNothing,
-      /*10*/ posNothing,    posNothing,    posNothing,    posNothing,   posNothing,
-      /*15*/ posNothing,    10 | posRight, 9 | posRight,  8 | posRight, 7 | posRight,
-      /*20*/ 6 | posRight,  5 | posRight,  4 | posRight,  3 | posRight, posNothing,
-      /*25*/ posNothing,    posNothing,    posNothing,    posNothing,   posNothing}}, // trimmed to 30 GPIO (0-29)
+        // Board Type: ESP32-C6
+        {"seeed-xiao-esp32c6", {/*00*/ 1 | posLeft,  2 | posLeft,   3 | posLeft,
+                                posNothing,          4 | posLeft,
+                                /*05*/ 5 | posLeft,  6 | posLeft,   7 | posLeft,
+                                posNothing,          posNothing,
+                                /*10*/ posNothing,   posNothing,    posNothing,
+                                posNothing,          posNothing,
+                                /*15*/ posNothing,   10 | posRight, 9 | posRight,
+                                8 | posRight,        7 | posRight,
+                                /*20*/ 6 | posRight, 5 | posRight,  4 | posRight,
+                                3 | posRight,        posNothing,
+                                /*25*/ posNothing,   posNothing,    posNothing,
+                                posNothing,          posNothing}},  // trimmed to 30 GPIO (0-29)
         //=====================================================================================================================
         // Insert new ESP layouts below this one!
         // Feel free to use any of the above as a template.
